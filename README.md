@@ -7,16 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 02
-1. Show the database design
-2. Create user database with auth
-    * composer require laravel/ui:3.4.6
-    * php artisan ui bootstrap
-    * php artisan ui bootstrap --auth
-    * npm install && npm run dev
-    * update schema table users 'database/migrations/yyyy_mm_dd_hhhhhh_create_users_table.php'
-3. Create dumy data with seeder and factory
-    * php artisan make:seeder UsersTableSeeder
-    * update .env mysql user and password
-    * php artisan migrate
-    * php artisan migrate:fresh --seed
+## Part 03
+1. Setup admin theme
+2. Setup menu items

@@ -24,25 +24,24 @@ class UsersTableSeeder extends Seeder
                 'password'=> Hash::make('12345'),
                 'role'=>'admin',
                 'status'=>'active'
-            ],
+            ]);
             //Vendor
-            [
+        DB::table('users')->insert([
                 'full_name' => 'Adipati Vendor',
                 'username'=> 'Vendor',
                 'email'=> 'vendor@gmail.com',
                 'password'=> Hash::make('12345'),
                 'role'=>'vendor',
                 'status'=>'active'
-            ],
+            ]);
             //Customer
-            [
+        DB::table('users')->insert([
                 'full_name' => 'Adipati Customer',
                 'username'=> 'Customer',
                 'email'=> 'customer@gmail.com',
                 'password'=> Hash::make('12345'),
                 'role'=>'customer',
                 'status'=>'active'
-            ]
-        );
+        ]);
     }
 }
