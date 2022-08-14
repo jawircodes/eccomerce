@@ -16,3 +16,6 @@
     * npm install && npm run dev
     * update schema table users 'database/migrations/yyyy_mm_dd_hhhhhh_create_users_table.php'
 3. Create dumy data with seeder and factory
+    * php artisan make:seeder UsersTableSeeder
+    * update .env mysql user and password
+    * php artisan migrate
