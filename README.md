@@ -19,3 +19,4 @@
     * php artisan make:seeder UsersTableSeeder
     * update .env mysql user and password
     * php artisan migrate
+    * php artisan migrate:fresh --seed
