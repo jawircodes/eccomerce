@@ -9,5 +9,5 @@
 
 ## Part 01
 1. Setup fresh install laravel project
-    1. composer create-project laravel/laravel=8.6.12 ecommerce
+    * composer create-project laravel/laravel=8.6.12 ecommerce
 2. Create database
