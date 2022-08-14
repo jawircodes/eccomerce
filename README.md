@@ -10,4 +10,8 @@
 ## Part 02
 1. Show the database design
 2. Create user database with auth
+    * composer require laravel/ui:3.4.6
+    * php artisan ui bootstrap
+    * php artisan ui bootstrap --auth
+    * npm install && npm run dev
 3. Create dumy data with seeder and factory
