@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 01
-1. Setup fresh install laravel project
-    * composer create-project laravel/laravel=8.6.12 ecommerce
-2. Create database
+## Part 02
+1. Show the database design
+2. Create user database with auth
+3. Create dumy data with seeder and factory
