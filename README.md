@@ -9,5 +9,7 @@
 
 ## Part 05
     1. Create baner database
+        * php artisan make:model Banner -m
+        * php artisan migrate
     2. Create baner controller
     3. CRUD operation on banner.
