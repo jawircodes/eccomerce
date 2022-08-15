@@ -1,7 +1,9 @@
 @extends('backend.layouts.authentication')
 @section('title', 'Login')
 
+
 @section('content')
+
 <div class="vertical-align-wrap">
 	<div class="vertical-align-middle auth-main">
 		<div class="auth-box">
@@ -13,11 +15,11 @@
                     <p class="lead">Login to your account</p>
                 </div>
                 <div class="body">
-                <form class="form-auth-small" action="{{ route('login') }}" method="POST">
+                    <form class="form-auth-small" action="{{ route('login') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="signin-email" class="control-label sr-only">Email</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Email">
+                            <input type="email" class="form-control" id="email" value="{{ old('email') }}" placeholder="Email">
                             @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -25,8 +27,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="password" class="control-label sr-only">Password</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <label for="signin-password" class="control-label sr-only">Password</label>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" required autocomplete="current-password">
                             @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -52,4 +54,4 @@
 	</div>
 </div>
 
-@endsection
+@stop
