@@ -7,6 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 03
-1. Setup admin theme
-2. Setup menu items
+## Part 04
+1. Setup login design
+2. Work on login and logout functionality
