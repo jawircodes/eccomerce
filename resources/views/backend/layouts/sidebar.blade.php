@@ -31,7 +31,7 @@
         </div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Admin</a></li>
             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Chat"><i class="icon-book-open"></i></a></li>
             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>
             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#question"><i class="icon-question"></i></a></li>                
@@ -42,54 +42,93 @@
             <div class="tab-pane active" id="menu">
                 <nav id="left-sidebar-nav" class="sidebar-nav">
                     <ul id="main-menu" class="metismenu">                            
-                        <li class="{{ Request::segment(1) === 'dashboard' ? 'active' : null }}">
-                            <a href="#Dashboard" class="has-arrow"><i class="icon-home"></i> <span>Dashboard</span></a>
-                            
+                        <li class="active">
+                            <a href="#"><i class="icon-grid"></i> <span>Dashboard</span></a>
                         </li>
-                        <li class="{{ Request::segment(1) === 'app' ? 'active' : null }}">
-                            <a href="#App" class="has-arrow"><i class="icon-grid"></i> <span>App</span></a>
-                            
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-picture"></i> <span>Banner Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'file-manager' ? 'active' : null }}">
-                            <a href="#FileManager" class="has-arrow"><i class="icon-folder"></i> <span>File Manager</span></a>
-                            
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="fa fa-sitemap"></i> <span>Category Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'blog' ? 'active' : null }}">
-                            <a href="#Blog" class="has-arrow"><i class="icon-globe"></i> <span>Blog</span></a>
-                            
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-briefcase"></i> <span>Products Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'ui-elements' ? 'active' : null }}">
-                            <a href="#uiElements" class="has-arrow"><i class="icon-diamond"></i> <span>UI Elements</span></a>
-                           
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-handbag"></i> <span>Carts Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'widgets' ? 'active' : null }}">
-                            <a href="#Widgets" class="has-arrow"><i class="icon-puzzle"></i> <span>Widgets</span></a>
-                            
+                        <li>
+                            <a href="#"><i class="icon-layers"></i> <span>Order Management</span></a>
                         </li>
-                        <li class="{{ Request::segment(1) === 'authentication' ? 'active' : null }}">
-                            <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i> <span>Authentication</span></a>
-                           
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-control-pause"></i> <span>Post Category</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'pages' ? 'active' : null }}">
-                            <a href="#Pages" class="has-arrow"><i class="icon-docs"></i> <span>Pages</span></a>
-                            
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-tag"></i> <span>Post Tag</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'forms' ? 'active' : null }}">
-                            <a href="#forms" class="has-arrow"><i class="icon-pencil"></i> <span>Forms</span></a>
-                            
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-drawer"></i> <span>Post Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'table' ? 'active' : null }}">
-                            <a href="#Tables" class="has-arrow"><i class="icon-tag"></i> <span>Tables</span></a>
-                            
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-star"></i> <span>Review Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'charts' ? 'active' : null }}">
-                            <a href="#charts" class="has-arrow"><i class="icon-bar-chart"></i> <span>Charts</span></a>
-                           
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-check"></i> <span>Coupon Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
-                        <li class="{{ Request::segment(1) === 'map' ? 'active' : null }}">
-                            <a href="#Maps" class="has-arrow"><i class="icon-map"></i> <span>Maps</span></a>
-                            
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-users"></i> <span>User Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
                         </li>
+                        <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-bubbles"></i> <span>Comments Management</span></a>
+                            <ul>
+                                <li><a href="#">All Departements</a></li>
+                                <li><a href="#">Add Departements</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-settings"></i> <span>Settings</span></a>
+                        </li>
+                          
                     </ul>
                 </nav>
             </div>
