@@ -12,4 +12,11 @@
         * php artisan make:model Banner -m
         * php artisan migrate
     2. Create baner controller
+        * php artisan make:controller BannerController -r
+        composer require unisharp/laravel-filemanager
+        php artisan vendor:publish --tag=lfm_config
+        php artisan vendor:publish --tag=lfm_public
+        php artisan route:clear
+        php artisan config:clear
+
     3. CRUD operation on banner.
