@@ -33,5 +33,17 @@
         </div>
     </div>
 </div>
+    @section('page-script')
+        @if(Session::has('success'))
+
+            <script>
+                $(document).ready(function(){
+                    toastr.options = {closeButton:true};
+                    toastr.success("{{session('success')}}");
+                });
+            </script>
+
+        @endif
+    @endsection
     
 @endsection
