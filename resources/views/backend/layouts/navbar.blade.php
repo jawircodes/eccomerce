@@ -5,7 +5,7 @@
         </div>
 
         <div class="navbar-brand">
-            <a href="#"><img src="{{ asset('assets/img/logo.svg') }}" alt="Lucid Logo" class="img-responsive logo"></a>                
+            <a href="#"><img src="{{ asset('backend/assets/img/logo.svg') }}" alt="Lucid Logo" class="img-responsive logo"></a>                
         </div>
         
         <div class="navbar-right">

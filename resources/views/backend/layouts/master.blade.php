@@ -14,14 +14,14 @@
         {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
         @stack('before-styles')
 
-        <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendor/morrisjs/morris.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/assets/vendor/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('backend/assets/vendor/morrisjs/morris.min.css') }}" />
 
         <!-- Custom Css -->
-        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/css/color_skins.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/assets/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/assets/css/color_skins.css') }}">
 
        
 
@@ -58,7 +58,7 @@
         <!-- Page Loader -->
         <div class="page-loader-wrapper">
             <div class="loader">
-                <div class="m-t-30"><img src="{{url('/')}}/assets/img/logo-icon.svg" width="48" height="48" alt="Lucid"></div>
+                <div class="m-t-30"><img src="{{url('/')}}/backend/assets/img/logo-icon.svg" width="48" height="48" alt="Lucid"></div>
                 <p>Please wait...</p>        
             </div>
         </div>
@@ -98,15 +98,15 @@
         <!-- Scripts -->
         @stack('before-scripts')
 
-        <script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script>    
-        <script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script>
+        <script src="{{ asset('backend/assets/bundles/libscripts.bundle.js') }}"></script>    
+        <script src="{{ asset('backend/assets/bundles/vendorscripts.bundle.js') }}"></script>
         
-        <script src="{{ asset('assets/bundles/morrisscripts.bundle.js') }}"></script><!-- Morris Plugin Js -->
-        <script src="{{ asset('assets/bundles/jvectormap.bundle.js') }}"></script> <!-- JVectorMap Plugin Js -->
-        <script src="{{ asset('assets/bundles/knob.bundle.js') }}"></script>
+        <script src="{{ asset('backend/assets/bundles/morrisscripts.bundle.js') }}"></script><!-- Morris Plugin Js -->
+        <script src="{{ asset('backend/assets/bundles/jvectormap.bundle.js') }}"></script> <!-- JVectorMap Plugin Js -->
+        <script src="{{ asset('backend/assets/bundles/knob.bundle.js') }}"></script>
         
 
-        <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
+        <script src="{{ asset('backend/assets/bundles/mainscripts.bundle.js') }}"></script>
 
         @stack('after-scripts')
 
