@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,5 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     //banners section
     Route::resource('banners','\App\Http\Controllers\BannerController');
+   
 });

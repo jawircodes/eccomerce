@@ -14,10 +14,9 @@
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
+                    <table class="table table-bordered table-hover  dataTable table-custom" id="data-table">
                         <thead>
-                            <tr>
-                                <th>No</th>
+                            <tr>       
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Photo</th>
@@ -34,6 +33,23 @@
     </div>
 </div>
     @section('page-script')
+
+        <script>
+             $(function () {
+                var table = $('#data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('banners.index') }}",
+                    columns: [
+                        {data: 'title', name: 'title'},
+                        {data: 'description', name: 'description'},
+                        {data: 'photo', name: 'photo'},
+                        {data: 'condition', name: 'condition'},
+                        {data: 'status', name: 'status'},
+                    ]
+                });
+            });
+        </script>
         @if(Session::has('success'))
 
             <script>
