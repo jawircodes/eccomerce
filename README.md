@@ -13,3 +13,4 @@
     * php artisan migrate
 2. Create banner Controller
     * php artisan make:controller BannerController -r
+3. CRUD operation banners

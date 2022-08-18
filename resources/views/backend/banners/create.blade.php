@@ -15,7 +15,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="title">Title <span>*</span></label>
-                                <input type="text" class="form-control" name="title" id="title" required>
+                                <input type="text" class="form-control" name="title" id="title" required data-parsley-minlength="5">
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
