@@ -5,7 +5,7 @@
         </div>
 
         <div class="navbar-brand">
-            <a href="{{route('dashboard.analytical')}}"><img src="{{ asset('assets/img/logo.svg') }}" alt="Lucid Logo" class="img-responsive logo"></a>                
+            <a href="#"><img src="{{ asset('backend/assets/img/logo.svg') }}" alt="Lucid Logo" class="img-responsive logo"></a>                
         </div>
         
         <div class="navbar-right">
@@ -17,16 +17,16 @@
             <div id="navbar-menu">
                 <ul class="nav navbar-nav">
                     <li class="d-none d-sm-inline-block d-md-none d-lg-inline-block">
-                        <a href="{{route('file-manager.dashboard')}}" class="icon-menu"><i class="fa fa-folder-open-o"></i></a>
+                        <a href="#" class="icon-menu"><i class="fa fa-folder-open-o"></i></a>
                     </li>
                     <li class="d-none d-sm-inline-block d-md-none d-lg-inline-block">
-                        <a href="{{route('app.calendar')}}" class="icon-menu"><i class="icon-calendar"></i></a>
+                        <a href="#" class="icon-menu"><i class="icon-calendar"></i></a>
                     </li>
                     <li class="d-none d-sm-inline-block">
-                        <a href="{{route('app.chat')}}" class="icon-menu"><i class="icon-bubbles"></i></a>
+                        <a href="#" class="icon-menu"><i class="icon-bubbles"></i></a>
                     </li>
                     <li class="d-none d-sm-inline-block">
-                        <a href="{{route('app.inbox')}}" class="icon-menu"><i class="icon-envelope"></i><span class="notification-dot"></span></a>
+                        <a href="#" class="icon-menu"><i class="icon-envelope"></i><span class="notification-dot"></span></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
@@ -105,7 +105,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{route('authentication.login')}}" class="icon-menu"><i class="icon-login"></i></a>
+                        <a href="{{ route('logout') }}" class="icon-menu" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="icon-login"></i></a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </div>

@@ -19,6 +19,7 @@ class CreateBannersTable extends Migration
             $table->string('slug')->unique();
             $table->mediumText('description')->nullable();
             $table->string('photo');
+            $table->enum('condition', ['banner','promo'])->default('banner');
             $table->enum('status', ['active','inactive'])->default('active');
             $table->timestamps();
         });
