@@ -20,12 +20,7 @@
         <link rel="stylesheet" href="{{ asset('assets/vendor/morrisjs/morris.min.css') }}" />
                 
         
-        @if (Request::segment(2) === 'banners' )
-            <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}"/>
-            <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css') }}"/>
-            <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css') }}"/>
-            <link rel="stylesheet" href="{{ asset('assets/vendor/sweetalert/sweetalert.css') }}"/>
-        @endif
+        @yield('css-module')
         
         <!-- Custom Css -->
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
@@ -107,17 +102,7 @@
         <script src="{{ asset('assets/bundles/jvectormap.bundle.js') }}"></script> <!-- JVectorMap Plugin Js -->
         <script src="{{ asset('assets/bundles/knob.bundle.js') }}"></script>
 
-        @if (Request::segment(2) === 'banners' )
-            <script src="{{ asset('assets/bundles/datatablescripts.bundle.js') }}"></script>
-            <script src="{{ asset('assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js') }}"></script>
-            <script src="{{ asset('assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js') }}"></script>
-            <script src="{{ asset('assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js') }}"></script>
-            <script src="{{ asset('assets/vendor/jquery-datatable/buttons/buttons.html5.min.js') }}"></script>
-            <script src="{{ asset('assets/vendor/jquery-datatable/buttons/buttons.print.min.js') }}"></script>
-            <script src="{{ asset('assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
-            <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
-        @endif
-
+         @yield('js-module')
 
         <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
 

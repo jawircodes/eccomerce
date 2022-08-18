@@ -18,5 +18,6 @@
         php artisan vendor:publish --tag=lfm_public
         php artisan route:clear
         php artisan config:clear
+        php artisan storage:link
 
     3. CRUD operation on banner.
