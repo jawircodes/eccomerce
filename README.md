@@ -7,15 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 05
-    1. Create baner database
-        * php artisan make:model Banner -m
-        * php artisan migrate
-    2. Create baner controller
-        * php artisan make:controller BannerController -r
-        composer require unisharp/laravel-filemanager
-        php artisan vendor:publish --tag=lfm_config
-        php artisan vendor:publish --tag=lfm_public
-        php artisan route:clear
-        php artisan config:clear
-        php artisan storage:link
+## Part 04
+1. Setup login design
+2. Work on login and logout functionality
