@@ -48,8 +48,8 @@
                         <li>
                             <a href="javascript:void(0);" class="has-arrow"><i class="icon-picture"></i> <span>Banner Management</span></a>
                             <ul>
-                                <li><a href="#">All Departements</a></li>
-                                <li><a href="#">Add Departements</a></li>
+                                <li><a href="{{route('banners.index')}}">All Banners</a></li>
+                                <li><a href="{{route('banners.create')}}">Add Banner</a></li>
                             </ul>
                         </li>
                         <li>

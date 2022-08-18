@@ -13,7 +13,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-        //
+        return 'index';
     }
 
     /**
@@ -23,7 +23,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        return 'create';
     }
 
     /**
