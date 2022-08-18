@@ -12,3 +12,4 @@
     * php artisan make:model Banner -m
     * php artisan migrate
 2. Create banner Controller
+    * php artisan make:controller BannerController -r
