@@ -145,7 +145,7 @@
                     <li class="online">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="{{ asset('assets/img/xs/avatar4.jpg') }}" alt="">
+                                <img class="media-object " src="{{ asset('backend/assets/img/xs/avatar4.jpg') }}" alt="">
                                 <div class="media-body">
                                     <span class="name">Chris Fox</span>
                                     <span class="message">Designer, Blogger</span>
@@ -157,7 +157,7 @@
                     <li class="online">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="{{ asset('assets/img/xs/avatar5.jpg') }}" alt="">
+                                <img class="media-object " src="{{ asset('backend/assets/img/xs/avatar5.jpg') }}" alt="">
                                 <div class="media-body">
                                     <span class="name">Joge Lucky</span>
                                     <span class="message">Java Developer</span>
@@ -169,7 +169,7 @@
                     <li class="offline">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="{{ asset('assets/img/xs/avatar2.jpg') }}" alt="">
+                                <img class="media-object " src="{{ asset('backend/assets/img/xs/avatar2.jpg') }}" alt="">
                                 <div class="media-body">
                                     <span class="name">Isabella</span>
                                     <span class="message">CEO, Thememakker</span>
@@ -181,7 +181,7 @@
                     <li class="offline">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="{{ asset('assets/img/xs/avatar1.jpg') }}" alt="">
+                                <img class="media-object " src="{{ asset('backend/assets/img/xs/avatar1.jpg') }}" alt="">
                                 <div class="media-body">
                                     <span class="name">Folisise Chosielie</span>
                                     <span class="message">Art director, Movie Cut</span>
@@ -193,7 +193,7 @@
                     <li class="online">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="{{ asset('assets/img/xs/avatar3.jpg') }}" alt="">
+                                <img class="media-object " src="{{ asset('backend/assets/img/xs/avatar3.jpg') }}" alt="">
                                 <div class="media-body">
                                     <span class="name">Alexander</span>
                                     <span class="message">Writter, Mag Editor</span>
