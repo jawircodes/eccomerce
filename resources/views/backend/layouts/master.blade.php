@@ -23,7 +23,7 @@
         
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/summernote/dist/summernote.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('backend/assets/vendor/toastr/toastr.min.css') }}"/>
+       
         
         
         @endif
@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/sweetalert/sweetalert.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('backend/assets/vendor/toastr/toastr.min.css') }}"/>
         @endif
 
         <!-- Custom Css -->
@@ -128,7 +129,7 @@
         <script src="{{ asset('backend/assets/vendor/parsleyjs/js/parsley.min.js') }}"></script>
         <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
         <script src="{{ asset('backend/assets/vendor/summernote/dist/summernote.js') }}"></script>
-        <script src="{{ asset('backend/assets/vendor/toastr/toastr.js') }}"></script>
+        
         
         @endif
         @if (Request::segment(2) === 'banners')
@@ -140,6 +141,7 @@
         <script src="{{ asset('backend/assets/vendor/jquery-datatable/buttons/buttons.print.min.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
         <script src="{{ asset('backend/assets/js/pages/tables/jquery-datatable.js') }}"></script>
+        <script src="{{ asset('backend/assets/vendor/toastr/toastr.js') }}"></script>
         
         @endif
 

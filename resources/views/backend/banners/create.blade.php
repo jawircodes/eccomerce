@@ -4,21 +4,7 @@
 @section('childPageTitle', 'Add Banner')
 
 @section('content')
-<!-- /resources/views/post/create.blade.php -->
- 
-<h1>Create Post</h1>
- 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
- 
-<!-- Create Post Form -->
+
 <div class="row clearfix">
 
     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -30,7 +16,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="title">Title <span>*</span></label>
-                                <input type="text" class="form-control" name="title" id="title" required data-parsley-minlength="5">
+                                <input type="text" class="form-control" name="title" id="title" required>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -46,7 +32,7 @@
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea class="form-control" name="description" id="description" placeholder="Write some text..">
-                                    
+                                    {{old('description')}}
                                 </textarea>
                             </div>
                         </div>
@@ -87,12 +73,11 @@
 
 @section('page-script')
 
-    <script>
-        $(document).ready(function(){
-            $('#basic-form').parsley();
-            $('#description').summernote();
-            $('#lfm').filemanager('image');
-        });
-    </script>
-
+<script>
+    $(document).ready(function(){
+        $('#basic-form').parsley();
+        $('#description').summernote();
+        $('#lfm').filemanager('image');
+    });
+</script>
 @endsection

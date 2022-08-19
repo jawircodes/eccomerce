@@ -39,16 +39,13 @@
                 var table = $('#data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('banners.index') }}",
+                    ajax: "{{ route('banners.getBanners') }}",
                     columns: [
-                        {data: 'title'},
-                        {data: 'description'},
-                        {data: 'photo'},
-                        {data: 'condition'},
-                        {data: 'status'},
-                        {data: 'action', render:function() {
-                            return 'update, delete'
-                        }}
+                        {data: 'title', name: 'title'},
+                        {data: 'description', name: 'description'},
+                        {data: 'photo', name: 'photo'},
+                        {data: 'condition', name: 'condition'},
+                        {data: 'status', name: 'status'},
                     ]
                 });
             });
