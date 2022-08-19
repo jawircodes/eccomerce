@@ -41,11 +41,14 @@
                     serverSide: true,
                     ajax: "{{ route('banners.index') }}",
                     columns: [
-                        {data: 'title', name: 'title'},
-                        {data: 'description', name: 'description'},
-                        {data: 'photo', name: 'photo'},
-                        {data: 'condition', name: 'condition'},
-                        {data: 'status', name: 'status'},
+                        {data: 'title'},
+                        {data: 'description'},
+                        {data: 'photo'},
+                        {data: 'condition'},
+                        {data: 'status'},
+                        {data: 'action', render:function() {
+                            return 'update, delete'
+                        }}
                     ]
                 });
             });
