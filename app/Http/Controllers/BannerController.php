@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BannerController extends Controller
 {
@@ -13,7 +15,62 @@ class BannerController extends Controller
      */
     public function index()
     {
+        
         return view('backend.banners.index');
+
+    }
+    public function getBanners(Request $request)
+    {
+    
+        
+        $draw = $request->get('draw');
+        $start = $request->get("start");
+        $rowperpage = $request->get("length"); // total number of rows per page
+
+        $columnIndex_arr = $request->get('order');
+        $columnName_arr = $request->get('columns');
+        $order_arr = $request->get('order');
+        $search_arr = $request->get('search');
+
+        $columnIndex = $columnIndex_arr[0]['column']; // Column index
+        $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+        $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+        $searchValue = $search_arr['value']; // Search value
+
+        // Total records
+        $totalRecords = Banner::select('count(*) as allcount')->count();
+        $totalRecordswithFilter = Banner::select('count(*) as allcount')->where('title', 'like', '%' . $searchValue . '%')->count();
+        
+
+
+        $records = Banner::orderBy($columnName, $columnSortOrder)
+           ->where('banners.title', 'like', '%' . $searchValue . '%')
+            ->orWhere('banners.description', 'like', '%' . $searchValue . '%')
+            ->select('banners.*')
+            ->skip($start)
+            ->take($rowperpage)
+            ->get();
+
+        $data_arr = array();
+
+        foreach ($records as $record) {
+
+            $data_arr[] = array(
+                "title" => $record->title,
+                "photo" => $record->photo,
+                "description" => $record->description,
+                "condition" => $record->condition,
+                "status"=> $record->status
+            );
+        }
+
+        $result = array(
+            "draw"            => $draw,
+            "recordsTotal"    => $totalRecords,
+            "recordsFiltered" => $totalRecordswithFilter,
+            'data'            => $data_arr
+          );
+          return response()->json($result,200,['Content-Type'=>'application/json']);
     }
 
     /**
@@ -34,7 +91,23 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $this->validate($request, [
+            'title' => 'required|unique:banners|min:5|max:255',
+            'photo' => 'required',
+            'description' => 'nullable|string',
+            'condition' => 'required|in:banner,promo',
+            'status' => 'required|in:active,inactive'
+        ]);
+
+        $data = $request->all();
+        $slug = Str::slug($request->title,'-','en');
+        $data['slug'] = $slug;
+
+        if(Banner::create($data)) {
+            return redirect()->route('banners.index')->with('success', 'Successfuly created banner.');
+        } else {
+            return back()->with('error', 'Something went wrong!.');
+        }
     }
 
     /**
