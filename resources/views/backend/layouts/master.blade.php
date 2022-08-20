@@ -32,12 +32,15 @@
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/sweetalert/sweetalert.css') }}"/>
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/toastr/toastr.min.css') }}"/>
+
         @endif
 
         <!-- Custom Css -->
         <link rel="stylesheet" href="{{ asset('backend/assets/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('backend/assets/css/color_skins.css') }}">
+        
 
        
 
@@ -141,6 +144,7 @@
         <script src="{{ asset('backend/assets/vendor/jquery-datatable/buttons/buttons.print.min.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
         <script src="{{ asset('backend/assets/js/pages/tables/jquery-datatable.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
         <script src="{{ asset('backend/assets/vendor/toastr/toastr.js') }}"></script>
         
         @endif

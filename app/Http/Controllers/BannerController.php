@@ -56,6 +56,7 @@ class BannerController extends Controller
         foreach ($records as $record) {
 
             $data_arr[] = array(
+                "id" => $record->id,
                 "title" => $record->title,
                 "photo" => $record->photo,
                 "description" => $record->description,
