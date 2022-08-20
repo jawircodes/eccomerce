@@ -22,6 +22,9 @@ class BannerController extends Controller
     public function getBanners(Request $request)
     {
     
+        if(!$request->ajax()) {
+            return abort(404);
+        }
         
         $draw = $request->get('draw');
         $start = $request->get("start");

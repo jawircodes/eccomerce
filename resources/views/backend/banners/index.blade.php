@@ -54,8 +54,8 @@
                         {data: 'condition', render:function(data) {
                             return `<span class="badge badge-${data =='banner'?'success':'warning'}">${data}</span>`;
                         } },
-                        {data: 'status', render:function(data,type, row){
-                            return `<input class="active-inactive" type="checkbox" ${data == 'active' ?'checked':''} data-size="xs" data-id=${row.id}>`
+                        {data: 'status', render:function(data, type, row){
+                            return `<input type="checkbox" ${data == 'active' ?'checked':''} data-size="xs" data-id=${row.id} name="toggle">`
                         } },
                         {data: 'action', render:function() {
                             return 'edit, del';
@@ -65,9 +65,19 @@
                 table.on('draw', function() {
 
                     $('input[type=checkbox]').bootstrapToggle();
-                    $('input[type=checkbox]').change(function() {
+                    $('input[name=toggle]').change(function() {
+
+                        var mode = $(this).prop('checked');
                         var id = $(this).data('id');
-                        toastr.success('HELLo ' + id);
+                        $.ajax({
+                            url:"",
+                            type:"POST",
+                            data : {
+                                _token : "{{csrf_token()}}",
+                                mode:mode,
+                                id:id
+                            }
+                        });
                     });
                 });
                
