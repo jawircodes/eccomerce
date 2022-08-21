@@ -110,16 +110,11 @@
                                 
                                 data : {
                                     _token : "{{csrf_token()}}"
-                                },
-                                success: function(data){
-                                    swal("Hapus!", "Data anda telah dihapus. ", 'success');
-                                    location.reload();
-                                },
-                                error: function(err) {
-                                    alert('Network Error!!');
                                 }
                                 
                             });
+                            swal("Hapus!", "Data anda telah dihapus. ", 'success');
+                            location.reload();
                             
                         } else {
                             swal("Cancelled", "Your imaginary file is safe :)", "error");

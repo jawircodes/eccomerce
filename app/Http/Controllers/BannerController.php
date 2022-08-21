@@ -192,8 +192,7 @@ class BannerController extends Controller
     public function destroy($id)
     {
         $banner = Banner::findOrFail($id);
-        $banner->delete();
-        
-        return response()->json(['status'=>$id  ],200,['Content-Type'=>'application/json']);
+        $banner->delete();    
+        return response(null,401);
     }
 }
