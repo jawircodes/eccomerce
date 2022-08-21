@@ -115,6 +115,9 @@
                                     swal("Hapus!", "Data anda telah dihapus. ", 'success');
                                     table.ajax.reload();
                                 },
+                                error: function(err) {
+                                    alert('Network Error!!');
+                                }
                                 
                             });
                             
