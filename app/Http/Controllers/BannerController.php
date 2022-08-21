@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class BannerController extends Controller
@@ -93,7 +92,7 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|unique:banners|min:5|max:255',
+            'title' => 'required|min:5|max:255',
             'photo' => 'required',
             'description' => 'nullable|string',
             'condition' => 'required|in:banner,promo',
@@ -119,7 +118,7 @@ class BannerController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -130,7 +129,12 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banner = Banner::find($id);
+        if($banner) {
+            return view('backend.banners.edit', compact('banner'));
+        }
+        return abort(404);
+        
     }
 
     /**
@@ -142,19 +146,40 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $banners = DB::table('banners')->where('id', $id);
-
-        if ($query = $request->query('status')) {
-            if($query == 'true') { 
-                $banners->update(['status'=>'active']);
-            }
+        $banner = Banner::find($id);
+        if ($banner) {
+            if ($query = $request->query('status')) {
+                if($query == 'true') { 
+                    $banner->update(['status'=>'active']);
+                }
+        
+                else {
+                    $banner->update(['status'=>'inactive']);
+                }
+                return response()->json(['status'=>"Success"  ],200,['Content-Type'=>'application/json']);
     
-            else {
-                $banners->update(['status'=>'inactive']);
             }
-            return response()->json(['status'=>"Success"  ],200,['Content-Type'=>'application/json']);
 
+            $this->validate($request, [
+                'title' => 'required|min:5|max:255',
+                'photo' => 'required',
+                'description' => 'nullable|string',
+                'condition' => 'required|in:banner,promo',
+                'status' => 'required|in:active,inactive'
+            ]);
+
+            $status = $banner->fill($request->all())->save();
+
+            if($status) {
+                return redirect()->route('banners.index')->with('success', 'Successfuly update banner.');
+            } else {
+                return back()->with('error', 'Something went wrong!.');
+            }
+
+        } else {
+            return abort(404);
         }
+
         
     }
 

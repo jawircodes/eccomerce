@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/morrisjs/morris.min.css') }}" />
 
-        @if (Request::segment(2) === 'banners' && Request::segment(3) === 'create' )
+        @if (Request::segment(2) === 'banners' && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
         
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/summernote/dist/summernote.css') }}"/>
@@ -27,7 +27,7 @@
         
         
         @endif
-        @if (Request::segment(2) === 'banners')
+        @if (Request::segment(2) === 'banners' && !Request::segment(3) )
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css') }}"/>
@@ -98,6 +98,9 @@
                                     @if (trim($__env->yieldContent('parentPageTitle')))
                                        <li class="breadcrumb-item">@yield('parentPageTitle')</li>
                                     @endif
+                                    @if (trim($__env->yieldContent('childPageTitle')))
+                                       <li class="breadcrumb-item">@yield('childPageTitle')</li>
+                                    @endif
                                     @if (trim($__env->yieldContent('title')))
                                         <li class="breadcrumb-item active">@yield('title')</li>
                                     @endif
@@ -125,7 +128,7 @@
         <script src="{{ asset('backend/assets/bundles/knob.bundle.js') }}"></script>
         
 
-        @if (Request::segment(2) === 'banners' && Request::segment(3) === 'create' )
+        @if (Request::segment(2) === 'banners' && ( Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
 
         <script src="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/parsleyjs/js/parsley.min.js') }}"></script>
@@ -134,7 +137,7 @@
         
         
         @endif
-        @if (Request::segment(2) === 'banners')
+        @if (Request::segment(2) === 'banners' && !Request::segment(3) )
 
         <script src="{{ asset('backend/assets/bundles/datatablescripts.bundle.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js') }}"></script>

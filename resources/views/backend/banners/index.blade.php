@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
-@section('title', 'Banners Management')
+@section('title', 'All Banner')
 @section('parentPageTitle', 'Admin')
-@section('childPageTitle', 'All Banners')
+@section('childPageTitle', 'Banner Management')
 
 
 @section('content')
@@ -11,9 +11,7 @@
     <div class="col-lg-12">
     
         <div class="card">
-            <div class="header">
-                <h2>Basic Table <small>Basic example without any additional modification classes</small> </h2>                            
-            </div>
+            
             <div class="body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover  dataTable table-custom" id="data-table">
@@ -61,7 +59,7 @@
                         } },
                         {data: 'action', render:function(data, type, row) {
                             return `<span>
-                                        <button data-id=${row.id} type="button" class="btn btn-success btn-xs edit" title="Save"><span class="sr-only">Edit</span> <i class="fa fa-edit"></i></button>
+                                        <button data-id=${row.id} type="button" class="btn btn-success btn-xs edit" title="Edit"><span class="sr-only">Edit</span> <i class="fa fa-edit"></i></button>
                                         <button data-id=${row.id} type="button" class="btn btn-danger btn-xs delete" title="Delete"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
                                     </span>`;
                         }}
@@ -132,7 +130,7 @@
                 });
                 table.on('click', ".edit",function() {
                    var id = $(this).data('id');
-                    alert("EDIT" + id);
+                   window.location.href= `{{route('banners.index')}}/${id}/edit`;
                 });
                
             });
