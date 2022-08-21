@@ -125,7 +125,6 @@
         <script src="{{ asset('backend/assets/bundles/knob.bundle.js') }}"></script>
         
 
-        <script src="{{ asset('backend/assets/bundles/mainscripts.bundle.js') }}"></script>
         @if (Request::segment(2) === 'banners' && Request::segment(3) === 'create' )
 
         <script src="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
@@ -136,6 +135,7 @@
         
         @endif
         @if (Request::segment(2) === 'banners')
+
         <script src="{{ asset('backend/assets/bundles/datatablescripts.bundle.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js') }}"></script>
@@ -150,6 +150,10 @@
         @endif
 
         @stack('after-scripts')
+
+
+         
+        <script src="{{ asset('backend/assets/bundles/mainscripts.bundle.js') }}"></script>
 
         @if (trim($__env->yieldContent('page-script')))
             

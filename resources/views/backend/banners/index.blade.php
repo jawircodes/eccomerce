@@ -9,6 +9,7 @@
 <div class="row clearfix">
 
     <div class="col-lg-12">
+    
         <div class="card">
             <div class="header">
                 <h2>Basic Table <small>Basic example without any additional modification classes</small> </h2>                            
@@ -57,32 +58,76 @@
                         {data: 'status', render:function(data, type, row){
                             return `<input type="checkbox" ${data == 'active' ?'checked':''} data-size="xs" data-id=${row.id} name="toggle">`
                         } },
-                        {data: 'action', render:function() {
-                            return 'edit, del';
+                        {data: 'action', render:function(data, type, row) {
+                            return `<span>
+                                        <button data-id=${row.id} type="button" class="btn btn-success btn-xs edit" title="Save"><span class="sr-only">Edit</span> <i class="fa fa-edit"></i></button>
+                                        <button data-id=${row.id} type="button" class="btn btn-danger btn-xs delete" title="Delete"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
+                                    </span>`;
                         }}
-                    ]
+                    ],
+                    
                 });
+                
                 table.on('draw', function() {
 
                     $('input[type=checkbox]').bootstrapToggle();
-                    $('input[name=toggle]').change(function() {
-
-                        var mode = $(this).prop('checked');
-                        var id = $(this).data('id');
-                        $.ajax({
-                            url:`{{route('banners.index')}}/${id}?status=${mode}`,
-                            type:"PUT",
-                            data : {
-                                _token : "{{csrf_token()}}"
-                            },
-                            success: function(status){
-                                toastr.success(`Banner berhasil di ${mode==true?'Akifkan':'Nonaktifkan'}`);
-                            },
-                            error : function(err) {
-                                toastr.error(err);
-                            }
-                        });
+                    
+                });
+                table.on('change','input[name=toggle]', function() {
+                    var mode = $(this).prop('checked');
+                    var id = $(this).data('id');
+                    $.ajax({
+                        url:`{{route('banners.index')}}/${id}?status=${mode}`,
+                        type:"PUT",
+                        data : {
+                            _token : "{{csrf_token()}}"
+                        },
+                        success: function(status){
+                            toastr.success(`Banner berhasil di ${mode==true?'Akifkan':'Nonaktifkan'}`);
+                            
+                        },
+                        error : function(err) {
+                            toastr.error(err.status);
+                        }
                     });
+                });
+                table.on('click', ".delete",function() {
+                   var id = $(this).data('id');
+                   swal({
+                        title: "Apakah anda yakin?",
+                        text: "Data yang sudah dihapus tidak dapat dikembalikan!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#dc3545",
+                        confirmButtonText: "Ya, hapus ini!",
+                        cancelButtonText: "Tidak, batal!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            $.ajax({
+                                url:`{{route('banners.index')}}/${id}`,
+                                type:"DELETE",
+                                data : {
+                                    _token : "{{csrf_token()}}"
+                                },
+                                success: function(data){
+                                    swal("Hapus!", "Data anda telah dihapus. ", 'success');
+                                    table.ajax.reload();
+                                },
+                                
+                            });
+                            
+                        } else {
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        }
+                    });
+                   
+                   // alert("DEL" + id);
+                });
+                table.on('click', ".edit",function() {
+                   var id = $(this).data('id');
+                    alert("EDIT" + id);
                 });
                
             });
