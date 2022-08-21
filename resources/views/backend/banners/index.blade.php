@@ -42,6 +42,7 @@
                 var table = $('#data-table').DataTable({
                     processing: true,
                     serverSide: true,
+                    stateSave: true,
                     ajax: "{{ route('banners.index') }}",
                     columns: [
                         {data:'id'},
@@ -108,12 +109,13 @@
                             $.ajax({
                                 url:`{{route('banners.index')}}/${id}`,
                                 type:"DELETE",
+                                
                                 data : {
                                     _token : "{{csrf_token()}}"
                                 },
                                 success: function(data){
                                     swal("Hapus!", "Data anda telah dihapus. ", 'success');
-                                    table.ajax.reload();
+                                    location.reload();
                                 },
                                 error: function(err) {
                                     alert('Network Error!!');
@@ -134,6 +136,7 @@
                 });
                
             });
+            
         </script>
         @if(Session::has('success'))
 
