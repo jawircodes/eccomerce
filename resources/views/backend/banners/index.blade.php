@@ -70,15 +70,16 @@
                         var mode = $(this).prop('checked');
                         var id = $(this).data('id');
                         $.ajax({
-                            url:"",
-                            type:"POST",
+                            url:`{{route('banners.index')}}/${id}?status=${mode}`,
+                            type:"PUT",
                             data : {
-                                _token : "{{csrf_token()}}",
-                                mode:mode,
-                                id:id
+                                _token : "{{csrf_token()}}"
                             },
                             success: function(status){
-                                console.log('status');
+                                toastr.success(`Banner berhasil di ${mode==true?'Akifkan':'Nonaktifkan'}`);
+                            },
+                            error : function(err) {
+                                toastr.error(err);
                             }
                         });
                     });
