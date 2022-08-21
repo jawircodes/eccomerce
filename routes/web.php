@@ -27,17 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Admin dashboard
 Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
     Route::get('/',[\App\Http\Controllers\AdminController::class,'admin'])->name('admin');
-
-    Route::group(['prefix'=>'banners'], function() {
-
-        Route::get('/', [\App\Http\Controllers\BannerController::class, "index"])->name('banners.index');
-        Route::get('/create', [\App\Http\Controllers\BannerController::class, "create"])->name('banners.create');
-        Route::post('/store', [\App\Http\Controllers\BannerController::class, "store"])->name('banners.store');
-        Route::get('get-banners', [\App\Http\Controllers\BannerController::class, "getBanners"])->name('banners.getBanners');
-
-    });
-
-    //banners section
-   //Route::resource('banners','\App\Http\Controllers\BannerController');
+    
+    Route::resource('banners','\App\Http\Controllers\BannerController');
    
 });

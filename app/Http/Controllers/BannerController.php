@@ -13,17 +13,13 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        
-        return view('backend.banners.index');
-
-    }
-    public function getBanners(Request $request)
+   
+    public function index(Request $request)
     {
     
         if(!$request->ajax()) {
-            return abort(404);
+           // return abort(404);
+           return view('backend.banners.index');
         }
         
         $draw = $request->get('draw');

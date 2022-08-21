@@ -6,7 +6,7 @@
 	<div class="vertical-align-middle auth-main">
 		<div class="auth-box">
             <div class="top">
-                <img src="{{url('/')}}/assets/img/logo-white.svg" alt="Lucid">
+                <img src="{{url('/')}}/backend/assets/img/logo-white.svg" alt="Lucid">
             </div>
 			<div class="card">
                 <div class="header">

@@ -41,7 +41,7 @@
                 var table = $('#data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('banners.getBanners') }}",
+                    ajax: "{{ route('banners.index') }}",
                     columns: [
                         {data:'id'},
                         {data: 'title'},
@@ -76,6 +76,9 @@
                                 _token : "{{csrf_token()}}",
                                 mode:mode,
                                 id:id
+                            },
+                            success: function(status){
+                                console.log('status');
                             }
                         });
                     });
