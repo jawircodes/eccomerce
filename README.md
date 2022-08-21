@@ -7,9 +7,5 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 05
-1. Create banner Database
-    * php artisan make:model Banner -m
-    * php artisan migrate
-2. Create banner Controller
-    * php artisan make:controller BannerController -r
+## Part 06
+1. CRUD operation banner
