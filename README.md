@@ -7,5 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 06
-1. CRUD operation banner
+## Part 07
+1. create category database
+2. create category controller
+3. create dummy data and fetch in index page
