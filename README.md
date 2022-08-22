@@ -11,4 +11,5 @@
 1. create category database
     * php artisan make:model Category -m
 2. create category controller
+    * php artisan make:controller CategoryController -r
 3. create dummy data and fetch in index page
