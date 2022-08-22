@@ -21,6 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->boolean('is_parent')->default(true);
             $table->mediumText('summary')->nullable();
             $table->unsignedBigInteger('parent_id');
+            $table->enum('status',['active', 'inactive'])->default('active');
             $table->foreign('id')->references('categories')->onDelete('SET NULL');
             $table->timestamps();
         });
