@@ -7,11 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 07
-1. create category database
-    * php artisan make:model Category -m
-2. create category controller
-    * php artisan make:controller CategoryController -r
-3. create dummy data and fetch in index page
-    * php artisan make:factory CategoryFactory --model=Category
-    * php artisan migrate:fresh --seed
+## Part 08
+1. Create category
+2. Edit and Update category
+3. shome change and delete category
