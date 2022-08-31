@@ -27,7 +27,8 @@
         
         
         @endif
-        @if (Request::segment(2) === 'banners' && !Request::segment(3) )
+        @if ( ( Request::segment(2) === 'banners' or Request::segment(2) === 'categories') && !Request::segment(3) )
+        
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css') }}"/>
@@ -137,7 +138,7 @@
         
         
         @endif
-        @if (Request::segment(2) === 'banners' && !Request::segment(3) )
+        @if (( Request::segment(2) === 'banners' or Request::segment(2) === 'categories') && !Request::segment(3) )
 
         <script src="{{ asset('backend/assets/bundles/datatablescripts.bundle.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js') }}"></script>

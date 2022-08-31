@@ -15,7 +15,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->title,
+            'title' => $this->faker->word,
             'slug' => $this->faker->unique()->slug,
             'summary' => $this->faker->sentence(3, true),
             'photo' => $this->faker->imageUrl(100, 100),

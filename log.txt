@@ -1,0 +1,36 @@
+Dropped all tables successfully.
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (65.05ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (65.92ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (57.06ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (92.24ms)
+Migrating: 2022_08_18_135444_create_banners_table
+Migrated:  2022_08_18_135444_create_banners_table (61.59ms)
+Migrating: 2022_08_21_231016_create_categories_table
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42000]: Syntax error or access violation: 1103 Incorrect table name '' (SQL: alter table `categories` add constraint `categories_id_foreign` foreign key (`id`) references `` (`categories`) on delete SET NULL)
+
+  at vendor/laravel/framework/src/Illuminate/Database/Connection.php:712
+    708▕         // If an exception occurs when attempting to run a query, we'll format the error
+    709▕         // message to include the bindings with SQL, which will make this exception a
+    710▕         // lot more helpful to the developer instead of just the database's errors.
+    711▕         catch (Exception $e) {
+  ➜ 712▕             throw new QueryException(
+    713▕                 $query, $this->prepareBindings($bindings), $e
+    714▕             );
+    715▕         }
+    716▕     }
+
+      [2m+9 vendor frames [22m
+  10  database/migrations/2022_08_21_231016_create_categories_table.php:27
+      Illuminate\Support\Facades\Facade::__callStatic()
+
+      [2m+33 vendor frames [22m
+  44  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle()

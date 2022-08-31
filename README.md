@@ -14,3 +14,4 @@
     * php artisan make:controller CategoryController -r
 3. create dummy data and fetch in index page
     * php artisan make:factory CategoryFactory --model=Category
+    * php artisan migrate:fresh --seed

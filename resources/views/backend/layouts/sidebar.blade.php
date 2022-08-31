@@ -55,8 +55,8 @@
                         <li>
                             <a href="javascript:void(0);" class="has-arrow"><i class="fa fa-sitemap"></i> <span>Category Management</span></a>
                             <ul>
-                                <li><a href="#">All Departements</a></li>
-                                <li><a href="#">Add Departements</a></li>
+                                <li><a href="{{route('categories.index')}}">All Categories</a></li>
+                                <li><a href="{{route('categories.create')}}">Add Category</a></li>
                             </ul>
                         </li>
                         <li>
