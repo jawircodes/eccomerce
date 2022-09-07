@@ -131,7 +131,7 @@
         });
         table.on('click', ".edit",function() {
            var id = $(this).data('id');
-           window.location.href= `{{route('banners.index')}}/${id}/edit`;
+           window.location.href= `{{route('categories.index')}}/${id}/edit`;
         });
         $('button[type=button]').click(function() {
             window.location.href = "{{route('categories.create')}}";

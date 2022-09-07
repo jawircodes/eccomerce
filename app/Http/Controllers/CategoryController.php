@@ -140,7 +140,13 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        $parentCategories = Category::where('is_parent', 1)->orderBy('title', 'ASC')->get();
+
+        if($category) {
+            return view('backend.categories.edit', compact(['category', 'parentCategories']) );
+        }
+        return abort(404);
     }
 
     /**
