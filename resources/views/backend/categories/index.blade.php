@@ -13,21 +13,30 @@
         <div class="card">
             
             <div class="body">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover  dataTable table-custom" id="data-table">
-                        <thead>
-                            <tr>    
-                                <th>id</th>   
-                                <th>Title</th>
-                                <th>Photo</th>
-                                <th>Is Parent</th>
-                                <th>Parents</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+               <div class="row">
+                    <div class="col">
+                    <div class="float-right">
+                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-plus-square"></i> <span>ADD</span></button>
+                            <div class="row clearfix"></div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover  dataTable table-custom" id="data-table">
+                            <thead>
+                                <tr>    
+                                    <th>id</th>   
+                                    <th>Title</th>
+                                    <th>Photo</th>
+                                    <th>Is Parent</th>
+                                    <th>Parents</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+               </div>
             </div>
         </div>
     </div>
@@ -102,7 +111,7 @@
             }, function (isConfirm) {
                 if (isConfirm) {
                     $.ajax({
-                        url:`{{route('banners.index')}}/${id}`,
+                        url:`{{route('categories.index')}}/${id}`,
                         type:"DELETE",
                         
                         data : {
@@ -123,6 +132,9 @@
         table.on('click', ".edit",function() {
            var id = $(this).data('id');
            window.location.href= `{{route('banners.index')}}/${id}/edit`;
+        });
+        $('button[type=button]').click(function() {
+            window.location.href = "{{route('categories.create')}}";
         });
        
     });

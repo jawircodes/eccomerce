@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/morrisjs/morris.min.css') }}" />
 
-        @if (Request::segment(2) === 'banners' && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
+        @if ((Request::segment(2) === 'banners' or Request::segment(2) === 'categories' ) && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
         
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/summernote/dist/summernote.css') }}"/>
@@ -129,7 +129,8 @@
         <script src="{{ asset('backend/assets/bundles/knob.bundle.js') }}"></script>
         
 
-        @if (Request::segment(2) === 'banners' && ( Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
+        @if ((Request::segment(2) === 'banners' or Request::segment(2) === 'categories' ) && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
+        
 
         <script src="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/parsleyjs/js/parsley.min.js') }}"></script>

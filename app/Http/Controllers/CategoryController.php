@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -58,7 +59,7 @@ class CategoryController extends Controller
                 "summary" => $record->summary,
                 "photo" => $record->photo,
                 "is_parent" => $record->is_parent,
-                "parent_id" => $record->parent_id,
+                "parent_id" => Category::where('id', $record->parent_id)->value('title'),
                 "status" => $record->status
             );
         }
@@ -79,7 +80,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        $parentCategories = Category::where('is_parent', 1)->orderBy('title', 'ASC')->get();
+
+        return view('backend.categories.create', compact('parentCategories'));
     }
 
     /**
@@ -90,7 +93,32 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'string|required',
+            'summary' => 'string|nullable',
+            'is_parent' => 'sometimes|in:1',
+            'parent_id' => 'nullable',
+            'status' => 'nullable|in:active,inactive'
+        ]);
+        $data = $request->all();
+        $slug = Str::slug($request->title,'-','en');
+        $data['slug'] = $slug;
+        $data['is_parent'] = $request->input('is_parent', 0);
+        if($request->is_parent==1) {
+            $data['parent_id'] = null;
+        }
+        if($request->is_parent == 0 && $request->parent_id == 0) {
+            $data['is_parent'] = 1;
+        }
+
+    
+        if(Category::create($data)) {
+            return redirect()->route('categories.index')->with('success', 'Successfuly created banner.');
+        } else {
+            return back()->with('error', 'Something went wrong!.');
+        }
+        
+
     }
 
     /**
@@ -136,5 +164,17 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+  
+        $category = Category::findOrFail($id);
+        if(count($category->subcategory))
+        {
+            $subcategories = $category->subcategory;
+            foreach($subcategories as $cat)
+            {
+                $cat->delete();
+            }
+        }
+        $category->delete();
+        return response(null,401);
     }
 }

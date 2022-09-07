@@ -13,8 +13,17 @@
         <div class="card">
             
             <div class="body">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover  dataTable table-custom" id="data-table">
+                <div class="row">
+                    <div class="col">
+                        <div class="float-right">
+                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-plus-square"></i> <span>ADD</span></button>
+                            <div class="row clearfix"></div>
+                            <br>
+                        </div>
+                    </div>
+                   
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover  dataTable table-custom" id="data-table">
                         <thead>
                             <tr>    
                                 <th>id</th>   
@@ -27,12 +36,12 @@
                             </tr>
                         </thead>
                         <tbody></tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
     @section('page-script')
 
         <script>
@@ -126,6 +135,9 @@
                 table.on('click', ".edit",function() {
                    var id = $(this).data('id');
                    window.location.href= `{{route('banners.index')}}/${id}/edit`;
+                });
+                $('button[type=button]').click(function() {
+                    window.location.href = "{{route('banners.create')}}";
                 });
                
             });
