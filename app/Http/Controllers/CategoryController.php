@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Exception;
 
 class CategoryController extends Controller
 {
@@ -159,8 +160,34 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = Category::find($id);
+        
 
         if($category) {
+            if ($query = $request->query('status')) {
+                if($query == 'true') { 
+                   $category->update(['status'=>'active']);
+                   try {
+                        $category->shift($category->parent->id, 'active');
+                    }catch(Exception $e) {}
+                   
+                }
+        
+                else {
+                    $category->update(['status'=>'inactive']);
+                    if(count($category->subcategory))
+                    {
+                        $subcategories = $category->subcategory;
+                        foreach($subcategories as $cat)
+                        {
+                            $cat->update(['status'=>'inactive']);
+                        }
+                    }
+                   
+                    
+                }
+                return response()->json(['status'=>"Success"  ],200,['Content-Type'=>'application/json']);
+    
+            }
             $this->validate($request, [
                 'title' => 'string|required',
                 'summary' => 'string|nullable',

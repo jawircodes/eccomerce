@@ -65,7 +65,7 @@
                     return `${data}`
                 } },
                 {data: 'status', render:function(data, type, row){
-                    return `${data}`
+                    return `<input type="checkbox" ${data == 'active' ?'checked':''} data-size="xs" data-id=${row.id} name="toggle">`
                 } },
                 {data: 'action', render:function(data, type, row) {
                     return `<span>
@@ -86,13 +86,13 @@
             var mode = $(this).prop('checked');
             var id = $(this).data('id');
             $.ajax({
-                url:`{{route('banners.index')}}/${id}?status=${mode}`,
+                url:`{{route('categories.index')}}/${id}?status=${mode}`,
                 type:"PUT",
                 data : {
                     _token : "{{csrf_token()}}"
                 },
                 success: function(status){
-                    toastr.success(`Banner berhasil di ${mode==true?'Akifkan':'Nonaktifkan'}`);
+                   location.reload();
                     
                 },
                 error : function(err) {
