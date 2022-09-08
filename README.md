@@ -7,7 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Part 08
-1. Create category
-2. Edit and Update category
-3. shome change and delete category
+## Part 09
+1. Design brand database
+2. Create brand database
+3. Create brand controller
+4. Create dumy data & fetch these data in index
+5. make crud operation
