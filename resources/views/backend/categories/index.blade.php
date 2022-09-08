@@ -92,7 +92,7 @@
                     _token : "{{csrf_token()}}"
                 },
                 success: function(status){
-                   location.reload();
+                   table.ajax.reload( null, false ); 
                     
                 },
                 error : function(err) {
@@ -123,8 +123,9 @@
                         }
                         
                     });
+                    table.ajax.reload( null, false ); 
                     swal("Hapus!", "Data anda telah dihapus. ", 'success');
-                    location.reload();
+                    
                     
                 } else {
                     swal("Cancelled", "Your imaginary file is safe :)", "error");
