@@ -158,7 +158,31 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+
+        if($category) {
+            $this->validate($request, [
+                'title' => 'string|required',
+                'summary' => 'string|nullable',
+                'is_parent' => 'sometimes|in:1',
+                'parent_id' => 'nullable',
+                'status' => 'nullable|in:active,inactive'
+            ]);
+
+            $status = $category->fill($request->all())->save();
+
+            if($status) {
+                return redirect()->route('categories.index')->with('success', 'Successfuly update category.');
+            } else {
+                return back()->with('error', 'Something went wrong!.');
+            }
+
+        } else {
+            return abort(404);
+        }
+        
+
+        return $request->all();
     }
 
     /**

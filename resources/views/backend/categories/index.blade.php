@@ -29,7 +29,8 @@
                                     <th>Title</th>
                                     <th>Photo</th>
                                     <th>Is Parent</th>
-                                    <th>Parents</th>
+                                    <th>Parent</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -61,6 +62,9 @@
                     return `<span class="badge badge-${data ==1?'danger':'success'}">${data ==1 ?'Yes':'No'}</span>`;
                 } },
                 {data: 'parent_id', render:function(data, type, row){
+                    return `${data}`
+                } },
+                {data: 'status', render:function(data, type, row){
                     return `${data}`
                 } },
                 {data: 'action', render:function(data, type, row) {

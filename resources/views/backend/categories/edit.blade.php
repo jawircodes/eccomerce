@@ -59,8 +59,8 @@
                             <label for="condition">Status</label>
                             <select name="status" class="form-control show-stick" required>
                                 <option value="">--Status--</option>
-                                <option value="active {{old('status')== 'active' ? 'selected':''}}">Active</option>
-                                <option value="inactive {{old('status')== 'inactive' ? 'selected':''}}">Inactive</option>
+                                <option value="active" {{ $category->status == 'active' ? 'selected':''}}>Active</option>
+                                <option value="inactive" {{$category->status == 'inactive' ? 'selected':''}}>Inactive</option>
                             </select>
                         </div>
                         
