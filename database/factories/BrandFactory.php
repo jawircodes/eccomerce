@@ -14,7 +14,10 @@ class BrandFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->word,
+            'slug' => $this->faker->unique()->slug,
+            'photo' => $this->faker->imageUrl('60', '60'),
+            'status' => $this->faker->randomElement(['active','inactive'])
         ];
     }
 }
