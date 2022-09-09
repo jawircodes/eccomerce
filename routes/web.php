@@ -30,5 +30,5 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
     
     Route::resource('banners','\App\Http\Controllers\BannerController');
     Route::resource('categories','\App\Http\Controllers\CategoryController');
-   
+    Route::resource('brands','\App\Http\Controllers\BrandController');
 });

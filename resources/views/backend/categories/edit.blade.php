@@ -70,7 +70,7 @@
                     <div class="col-sm-12">
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="submit" class="btn outline-secondary">Cancel</button>
+                            <a href="{{route('categories.index')}}" class="btn outline-secondary">Cancel</a>
                     </div>
                 </form>
             </div>

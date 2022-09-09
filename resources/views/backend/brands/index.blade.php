@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
-@section('title', 'All Banner')
+@section('title', 'All Brand')
 @section('parentPageTitle', 'Admin')
-@section('childPageTitle', 'Banner Management')
+@section('childPageTitle', 'Brand Management')
 
 
 @section('content')
@@ -28,9 +28,8 @@
                             <tr>    
                                 <th>id</th>   
                                 <th>Title</th>
-                                <th>Description</th>
                                 <th>Photo</th>
-                                <th>Condition</th>
+                            
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -50,19 +49,15 @@
                     processing: true,
                     serverSide: true,
                     stateSave: true,
-                    ajax: "{{ route('banners.index') }}",
+                    ajax: "{{ route('brands.index') }}",
                     columns: [
                         {data:'id'},
                         {data: 'title'},
-                        {data: 'description', render:function(data) {
-                            return `<div style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">${data}</div>`;
-                        }},
+                        
                         {data: 'photo', render:function(data) {
                             return `<img src=${data} alt="banner" style="height:25px; width:75px;"/>`;
                         }},
-                        {data: 'condition', render:function(data) {
-                            return `<span class="badge badge-${data =='banner'?'success':'warning'}">${data}</span>`;
-                        } },
+                        
                         {data: 'status', render:function(data, type, row){
                             return `<input type="checkbox" ${data == 'active' ?'checked':''} data-size="xs" data-id=${row.id} name="toggle">`
                         } },
@@ -85,7 +80,7 @@
                     var mode = $(this).prop('checked');
                     var id = $(this).data('id');
                     $.ajax({
-                        url:`{{route('banners.index')}}/${id}?status=${mode}`,
+                        url:`{{route('brands.index')}}/${id}?status=${mode}`,
                         type:"PUT",
                         data : {
                             _token : "{{csrf_token()}}"
@@ -114,7 +109,7 @@
                     }, function (isConfirm) {
                         if (isConfirm) {
                             $.ajax({
-                                url:`{{route('banners.index')}}/${id}`,
+                                url:`{{route('brands.index')}}/${id}`,
                                 type:"DELETE",
                                 
                                 data : {
@@ -135,10 +130,10 @@
                 });
                 table.on('click', ".edit",function() {
                    var id = $(this).data('id');
-                   window.location.href= `{{route('banners.index')}}/${id}/edit`;
+                   window.location.href= `{{route('brands.index')}}/${id}/edit`;
                 });
                 $('button[type=button]').click(function() {
-                    window.location.href = "{{route('banners.create')}}";
+                    window.location.href = "{{route('brands.create')}}";
                 });
                
             });

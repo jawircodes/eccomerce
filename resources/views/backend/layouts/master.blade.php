@@ -19,7 +19,9 @@
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/morrisjs/morris.min.css') }}" />
 
-        @if ((Request::segment(2) === 'banners' or Request::segment(2) === 'categories' ) && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
+        @if ((Request::segment(2) === 'banners' or 
+            Request::segment(2) === 'categories' or
+            Request::segment(2) === 'brands'  ) && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
         
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/summernote/dist/summernote.css') }}"/>
@@ -27,7 +29,10 @@
         
         
         @endif
-        @if ( ( Request::segment(2) === 'banners' or Request::segment(2) === 'categories') && !Request::segment(3) )
+        @if (( 
+            Request::segment(2) === 'banners' or 
+            Request::segment(2) === 'categories' or 
+            Request::segment(2) === 'brands') && !Request::segment(3) )
         
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css') }}"/>
@@ -129,7 +134,9 @@
         <script src="{{ asset('backend/assets/bundles/knob.bundle.js') }}"></script>
         
 
-        @if ((Request::segment(2) === 'banners' or Request::segment(2) === 'categories' ) && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
+        @if ((Request::segment(2) === 'banners' or 
+            Request::segment(2) === 'categories' or
+            Request::segment(2) === 'brands'  ) && (Request::segment(3) === 'create' or Request::segment(4) === 'edit') )
         
 
         <script src="{{ asset('backend/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
@@ -139,7 +146,7 @@
         
         
         @endif
-        @if (( Request::segment(2) === 'banners' or Request::segment(2) === 'categories') && !Request::segment(3) )
+        @if (( Request::segment(2) === 'banners' or Request::segment(2) === 'categories' or Request::segment(2) === 'brands') && !Request::segment(3) )
 
         <script src="{{ asset('backend/assets/bundles/datatablescripts.bundle.js') }}"></script>
         <script src="{{ asset('backend/assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js') }}"></script>

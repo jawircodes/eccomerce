@@ -10,14 +10,14 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
             <div class="body">
-                <form action="{{route('banners.update', $banner->id)}}" method="POST" id="basic-form" novalidate>
+                <form action="{{route('brands.update', $brand->id)}}" method="POST" id="basic-form" novalidate>
                     @csrf
                     @method('put')
                     <div class="row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="title">Title <span>*</span></label>
-                                <input type="text" class="form-control" name="title" id="title" required value="{{$banner->title}}">
+                                <input type="text" class="form-control" name="title" id="title" required value="{{$brand->title}}">
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -28,34 +28,19 @@
                                         <i class="fa fa-picture-o"></i> Chose
                                     </a>
                                 </span>
-                                <input id="thumbnail"  class="form-control" type="text" name="photo" required value="{{$banner->photo}}">
+                                <input id="thumbnail"  class="form-control" type="text" name="photo" required value="{{$brand->photo}}">
                                 
                             </div>
                             <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" name="description" id="description" placeholder="Write some text..">
-                                    {{$banner->description}}
-                                </textarea>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <label for="condition">Condition</label>
-                            <select name="condition" class="form-control show-stick" required>
-                                <option value="">--Conditions--</option>
-                                <option value="banner" {{$banner->condition == 'banner' ? 'selected':''}}>Banner</option>
-                                <option value="promo"  {{$banner->condition == 'promo' ? 'selected':''}}>Promo</option>
-                            </select>
-
-                        </div>
+                       
+                        
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <label for="condition">Status</label>
                             <select name="status" class="form-control show-stick" required>
                                 <option value="">--Status--</option>
-                                <option value="active" {{$banner->status == 'active' ? 'selected':''}}>Active</option>
-                                <option value="inactive" {{$banner->status == 'inactive' ? 'selected':''}}>Inactive</option>
+                                <option value="active" {{$brand->status == 'active' ? 'selected':''}}>Active</option>
+                                <option value="inactive" {{$brand->status == 'inactive' ? 'selected':''}}>Inactive</option>
                             </select>
                         </div>
                         
@@ -65,7 +50,7 @@
                     <div class="col-sm-12">
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="{{route('banners.index')}}" class="btn outline-secondary">Cancel</a>
+                            <a href="{{route('brands.index')}}" class="btn outline-secondary">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -81,11 +66,7 @@
 <script>
     $(document).ready(function(){
         $('#basic-form').parsley();
-        $('#description').summernote();
         $('#lfm').filemanager('image');
-
-        
-
 
     });
 </script>

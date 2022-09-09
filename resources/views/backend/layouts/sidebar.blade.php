@@ -60,6 +60,13 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="javascript:void(0);" class="has-arrow"><i class="icon-picture"></i> <span>Brand Management</span></a>
+                            <ul>
+                                <li><a href="{{route('brands.index')}}">All Brand</a></li>
+                                <li><a href="{{route('brands.create')}}">Add Brand</a></li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="javascript:void(0);" class="has-arrow"><i class="icon-briefcase"></i> <span>Products Management</span></a>
                             <ul>
                                 <li><a href="#">All Departements</a></li>

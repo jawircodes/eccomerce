@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BrandController extends Controller
 {
@@ -11,9 +13,60 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+    
+        if(!$request->ajax()) {
+           // return abort(404);
+           return view('backend.brands.index');
+        }
+        
+        $draw = $request->get('draw');
+        $start = $request->get("start");
+        $rowperpage = $request->get("length"); // total number of rows per page
+
+        $columnIndex_arr = $request->get('order');
+        $columnName_arr = $request->get('columns');
+        $order_arr = $request->get('order');
+        $search_arr = $request->get('search');
+
+        $columnIndex = $columnIndex_arr[0]['column']; // Column index
+        $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+        $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+        $searchValue = $search_arr['value']; // Search value
+
+        // Total records
+        $totalRecords = Brand::select('count(*) as allcount')->count();
+        $totalRecordswithFilter = Brand::select('count(*) as allcount')->where('title', 'like', '%' . $searchValue . '%')->count();
+        
+
+
+        $records = Brand::orderBy($columnName, $columnSortOrder)
+           ->where('brands.title', 'like', '%' . $searchValue . '%')
+            ->select('brands.*')
+            ->skip($start)
+            ->take($rowperpage)
+            ->get();
+
+        $data_arr = array();
+
+        foreach ($records as $record) {
+
+            $data_arr[] = array(
+                "id" => $record->id,
+                "title" => $record->title,
+                "photo" => $record->photo,
+                "status"=> $record->status
+            );
+        }
+
+        $result = array(
+            "draw"            => $draw,
+            "recordsTotal"    => $totalRecords,
+            "recordsFiltered" => $totalRecordswithFilter,
+            'data'            => $data_arr,
+          );
+          return response()->json($result,200,['Content-Type'=>'application/json']);
     }
 
     /**
@@ -23,7 +76,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.brands.create');
     }
 
     /**
@@ -34,7 +87,21 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'photo' => 'required',
+            'status' => 'required|in:active,inactive'
+        ]);
+
+        $data = $request->all();
+        $slug = Str::slug($request->title,'-','en');
+        $data['slug'] = $slug;
+
+        if(Brand::create($data)) {
+            return redirect()->route('brands.index')->with('success', 'Successfuly created brand.');
+        } else {
+            return back()->with('error', 'Something went wrong!.');
+        }
     }
 
     /**
@@ -45,7 +112,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -56,7 +123,11 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::find($id);
+        if($brand) {
+            return view('backend.brands.edit', compact('brand'));
+        }
+        return abort(404);
     }
 
     /**
@@ -68,7 +139,37 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand = Brand::find($id);
+        if ($brand) {
+            if ($query = $request->query('status')) {
+                if($query == 'true') { 
+                    $brand->update(['status'=>'active']);
+                }
+        
+                else {
+                    $brand->update(['status'=>'inactive']);
+                }
+                return response()->json(['status'=>"Success"  ],200,['Content-Type'=>'application/json']);
+    
+            }
+
+            $this->validate($request, [
+                'title' => 'required|max:255',
+                'photo' => 'required',
+                'status' => 'required|in:active,inactive'
+            ]);
+
+            $status = $brand->fill($request->all())->save();
+
+            if($status) {
+                return redirect()->route('brands.index')->with('success', 'Successfuly update brand.');
+            } else {
+                return back()->with('error', 'Something went wrong!.');
+            }
+
+        } else {
+            return abort(404);
+        }
     }
 
     /**
@@ -79,6 +180,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        $brand->delete();    
+        return response(null,401);
     }
 }
